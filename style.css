@@ -1,0 +1,11 @@
+.Box{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+.Box2{
+    position: absolute;
+    top: -25px;
+    left: -25px;
+}
