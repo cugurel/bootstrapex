@@ -37,16 +37,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Anasayfa</a>
+                        <a class="nav-link" aria-current="page" href="index.html">Anasayfa</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Ürünler
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Kadın</a></li>
+                            <li><a class="dropdown-item" href="productwoman.html">Kadın</a></li>
                             <li><a class="dropdown-item" href="#">Erkek</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -73,87 +73,26 @@
     </nav>
     <div class="container my-5">
         <div class="row">
-            <div class="col-3">
-                <div class="card">
-                    <div class="list-group list-group-flush">
-                        <li class="list-group-item">Kadın Outfit</li>
-                        <li class="list-group-item">Pilates</li>
-                        <li class="list-group-item">Fitness</li>
-                        <li class="list-group-item">Eşofman</li>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="list-group list-group-flush" id="category-list">
+                            <li class="list-group-item" data-category="kadin-outfit">Kadın Outfit</li>
+                            <li class="list-group-item" data-category="pilates">Pilates</li>
+                            <li class="list-group-item" data-category="fitness">Fitness</li>
+                            <li class="list-group-item" data-category="esofman">Eşofman</li>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-9">
-                <div class="container">
-                    <div class="row gy-3">
-                        <div class="col-3">
-                            <div class="card">
-                                <h5 class="card-header">İzmir Şubesi</h5>
-                                <div class="card-body">
-                                    <img src="img/urun1.jpeg" class="card-img-top" alt="Ortaköy resmi">
-                                    <p class="card-text mt-2">
-                                        Ürün fiyatı: 100 TL
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Şube İletişim</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <h5 class="card-header">İzmir Şubesi</h5>
-                                <div class="card-body">
-                                    <img src="img/urun2.jpeg" class="card-img-top" alt="Ortaköy resmi">
-                                    <p class="card-text mt-2">
-                                        Ürün Fiyatı : 200 tl </p>
-                                    <a href="#" class="btn btn-primary">Şube İletişim</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <h5 class="card-header">İzmir Şubesi</h5>
-                                <div class="card-body">
-                                    <img src="img/urun3.jpeg" class="card-img-top" alt="Ortaköy resmi">
-                                    <p class="card-text mt-2">
-                                        Ürün Fiyatı : 300 tl
-                                    </p>
-
-                                </div>
-                                <div class="card-footer text-center">
-                                    <a href="#" class="btn btn-primary">Sepete Ekle</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <h5 class="card-header">İzmir Şubesi</h5>
-                                <div class="card-body">
-                                    <img src="" class="card-img-top" alt="Ortaköy resmi">
-                                    <p class="card-text mt-2">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its lish.
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Şube İletişim</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <h5 class="card-header">İzmir Şubesi</h5>
-                                <div class="card-body">
-                                    <img src="" class="card-img-top" alt="Ortaköy resmi">
-                                    <p class="card-text mt-2">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its lish.
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Şube İletişim</a>
-                                </div>
-                            </div>
+            
+                <div class="col-9">
+                    <div class="container">
+                        <div class="row gy-3" id="product-container">
+                            <!-- Ürünler buraya eklenecek -->
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="container-fluid bg-secondary bg-opacity-25" style="border-top: 1px solid;">
@@ -207,5 +146,57 @@
         </footer>
     </div>
 </body>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productData = {
+            "kadin-outfit": [
+                { title: "Kadın Ceket", price: "500 TL", img: "img/urun1.jpeg" },
+                { title: "Kadın Elbise", price: "350 TL", img: "img/urun2.jpeg" }
+            ],
+            "pilates": [
+                { title: "Pilates Matı", price: "150 TL", img: "img/urun3.jpeg" },
+                { title: "Pilates Topu", price: "120 TL", img: "img/urun4.jpeg" }
+            ],
+            "fitness": [
+                { title: "Dambıl Seti", price: "800 TL", img: "img/urun5.jpeg" },
+                { title: "Koşu Bandı", price: "5000 TL", img: "img/urun6.jpeg" }
+            ],
+            "esofman": [
+                { title: "Eşofman Takımı", price: "300 TL", img: "img/urun7.jpeg" },
+                { title: "Spor Tayt", price: "200 TL", img: "img/urun8.jpeg" }
+            ]
+        };
+    
+        const categoryList = document.getElementById("category-list");
+        const productContainer = document.getElementById("product-container");
+    
+        categoryList.addEventListener("click", function (event) {
+            if (event.target.tagName === "LI") {
+                const selectedCategory = event.target.getAttribute("data-category");
+                updateProductList(selectedCategory);
+            }
+        });
+    
+        function updateProductList(category) {
+            productContainer.innerHTML = ""; // Mevcut ürünleri temizle
+            const products = productData[category] || [];
+    
+            products.forEach(product => {
+                const productCard = `
+                    <div class="col-3">
+                        <div class="card">
+                            <h5 class="card-header">${product.title}</h5>
+                            <div class="card-body">
+                                <img src="${product.img}" class="card-img-top" alt="${product.title}">
+                                <p class="card-text mt-2">Ürün Fiyatı: ${product.price}</p>
+                                <a href="#" class="btn btn-primary">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productContainer.innerHTML += productCard;
+            });
+        }
+    });
+    </script>
 </html>
